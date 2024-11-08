@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * @Author:zxp
  * @Description:
@@ -33,5 +35,9 @@ public class MqListeners {
         log.info(msg);
         System.out.println("消费者2号收到simple.queue德消息，内容为:"+msg);
         Thread.sleep(200);
+    }
+    @RabbitListener(queues = "object.queue")
+    public void objectQueue(Map map){
+        System.out.println("object.queue接收到消息，内容为: "+map);
     }
 }

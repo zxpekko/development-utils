@@ -3,7 +3,7 @@ logging:
     dateformat: MM-dd HH:mm:ss:SSS
 spring:
   rabbitmq:
-    host: 192.168.119.152
+    host: 192.168.119.153
     port: 5672
     virtual-host: /hmall
     username: hmall

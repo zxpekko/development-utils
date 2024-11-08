@@ -10,8 +10,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Consumer2 {
-    @RabbitListener(queues = "queue2")
+    @RabbitListener(queues = "fanout.queue2")
     public void test(String msg){
-        System.out.println("queue2接收到消息:"+msg);
+        System.out.println("fanout.queue2接收到消息:"+msg);
+    }
+    @RabbitListener(queues = "direct.queue2")
+    public void testDirect(String msg){
+        System.out.println("direct.queue2接收到消息:"+msg);
+    }
+    @RabbitListener(queues = "topic.queue2")
+    public void testTopic(String msg){
+        System.out.println("topic.queue2接收到消息:"+msg);
     }
 }
